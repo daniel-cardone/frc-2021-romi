@@ -4,6 +4,9 @@
 
 package frc.robot;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -71,8 +74,21 @@ public class RobotContainer {
         .whenInactive(new PrintCommand("Button A Released"));
 
     // Setup SmartDashboard options
-    m_chooser.setDefaultOption("Auto Time", new AutonomousTime(m_drivetrain));
-    m_chooser.addOption("Auto Distance", new AutonomousDistance(m_drivetrain));
+    LinkedHashMap<String, Command> autonomousPrograms = new LinkedHashMap<>();
+    autonomousPrograms.put("Auto Time", new AutonomousTime(m_drivetrain));
+    autonomousPrograms.put("Auto Distance", new AutonomousDistance(m_drivetrain));
+
+    for (String key : autonomousPrograms.keySet()) {
+      Command value = autonomousPrograms.get(key);
+
+      int pos = new ArrayList<String>(autonomousPrograms.keySet()).indexOf(key);
+      if (pos == 0) {
+        m_chooser.setDefaultOption(key, value);
+      } else {
+        m_chooser.addOption(key, value);
+      }
+    }
+    
     SmartDashboard.putData(m_chooser);
   }
 
