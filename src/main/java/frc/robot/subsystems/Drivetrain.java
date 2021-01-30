@@ -39,11 +39,25 @@ public class Drivetrain extends SubsystemBase {
     // Use inches as unit for encoder distances
     m_leftEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
     m_rightEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
+    m_rightMotor.setInverted(true);
     resetEncoders();
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
     m_diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
+  }
+
+  public void setLeftMotorVoltage(double volts) {
+    m_leftMotor.setVoltage(volts);
+  }
+
+  public void setRightMotorVoltage(double volts) {
+    m_rightMotor.setVoltage(volts);
+  }
+
+  public void setMotorVoltages(double leftVolts, double rightVolts) {
+    setLeftMotorVoltage(leftVolts);
+    setRightMotorVoltage(rightVolts);
   }
 
   public void resetEncoders() {
