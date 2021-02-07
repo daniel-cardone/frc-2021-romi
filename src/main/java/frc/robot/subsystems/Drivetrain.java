@@ -39,7 +39,6 @@ public class Drivetrain extends SubsystemBase {
     // Use inches as unit for encoder distances
     m_leftEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
     m_rightEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
-    m_rightMotor.setInverted(true);
     resetEncoders();
   }
 
@@ -52,7 +51,9 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setRightMotorVoltage(double volts) {
+    m_rightMotor.setInverted(true);
     m_rightMotor.setVoltage(volts);
+    m_rightMotor.setInverted(false);
   }
 
   public void setMotorVoltages(double leftVolts, double rightVolts) {
