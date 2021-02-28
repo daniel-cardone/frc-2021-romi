@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 public class AutonomousTime extends SequentialCommandGroup {
   /**
@@ -15,14 +16,24 @@ public class AutonomousTime extends SequentialCommandGroup {
    *
    * @param drivetrain The drive subsystem on which this command will run
    */
-  public AutonomousTime(Drivetrain drivetrain) {        
+  public AutonomousTime(Drivetrain drivetrain) {
     addCommands(
-      new MotorTime(7, 7, 0.625, drivetrain),
+      new WaitCommand(5),
+      new DriveDistance(0.8, 14, drivetrain),
       new MotorTime(-1, 7, 0.35, drivetrain),
-      new MotorTime(7, 7, 0.65, drivetrain),
-      new MotorTime(-7, 7, 0.3, drivetrain),
-      new MotorTime(7, 7, 0.9, drivetrain),
-      new MotorTime(7, -7, 0.05, drivetrain),
-      new MotorTime(7, 7, 0.2, drivetrain));
+      new DriveDistance(0.8, 14.25, drivetrain),
+      new WaitCommand(0.2),
+      new TurnDegrees(-0.7, 82, drivetrain),
+      new WaitCommand(0.2),
+      new MotorTime(7, 7, 0.7, drivetrain),
+      new MotorTime(7, 5, 0.4, drivetrain),
+      new MotorTime(7, 7, 0.15, drivetrain),
+      new WaitCommand(0.2),
+      new TurnDegrees(0.8, 34, drivetrain),
+      new WaitCommand(0.2),
+      new MotorTime(7, 7, 0.55, drivetrain),
+      new MotorTime(6, 2, 0.47, drivetrain),
+      new MotorTime(7, 7, 0.4, drivetrain)
+    );
   }
 }

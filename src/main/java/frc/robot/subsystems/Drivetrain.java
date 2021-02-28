@@ -40,6 +40,8 @@ public class Drivetrain extends SubsystemBase {
     m_leftEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
     m_rightEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
     resetEncoders();
+
+    m_diffDrive.setSafetyEnabled(false); // Disables jittering
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
@@ -51,9 +53,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setRightMotorVoltage(double volts) {
-    m_rightMotor.setInverted(true);
-    m_rightMotor.setVoltage(volts);
-    m_rightMotor.setInverted(false);
+    m_rightMotor.setVoltage(-volts);
   }
 
   public void setMotorVoltages(double leftVolts, double rightVolts) {
