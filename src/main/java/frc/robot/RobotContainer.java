@@ -10,9 +10,10 @@ import java.util.LinkedHashMap;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ArcadeDrive;
+// import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
+import frc.robot.commands.MotorVoltages;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.OnBoardIO;
 import frc.robot.subsystems.OnBoardIO.ChannelMode;
@@ -33,8 +34,9 @@ public class RobotContainer {
   private final Drivetrain m_drivetrain = new Drivetrain();
   private final OnBoardIO m_onboardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
 
-  // Assumes a gamepad plugged into channnel 0
+  // Assumes a gamepad plugged into channnels 0 and 1
   private final Joystick m_controller = new Joystick(0);
+  private final Joystick s_controller = new Joystick(1);
 
   // Create SmartDashboard chooser for autonomous routines
   private final SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -107,7 +109,9 @@ public class RobotContainer {
    * @return the command to run in teleop
    */
   public Command getArcadeDriveCommand() {
-    return new ArcadeDrive(
-        m_drivetrain, () -> -m_controller.getRawAxis(1) * 0.7, () -> m_controller.getRawAxis(0) * 0.7);
+    return new MotorVoltages(
+        m_drivetrain,
+        () -> -8 * s_controller.getRawAxis(1),
+        () -> -8 * m_controller.getRawAxis(1));
   }
 }

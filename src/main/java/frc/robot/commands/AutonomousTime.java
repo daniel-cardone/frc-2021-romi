@@ -19,21 +19,41 @@ public class AutonomousTime extends SequentialCommandGroup {
   public AutonomousTime(Drivetrain drivetrain) {
     addCommands(
       new WaitCommand(5),
-      new DriveDistance(0.8, 14, drivetrain),
-      new MotorTime(-1, 7, 0.35, drivetrain),
-      new DriveDistance(0.8, 14.25, drivetrain),
-      new WaitCommand(0.2),
-      new TurnDegrees(-0.7, 82, drivetrain),
-      new WaitCommand(0.2),
-      new MotorTime(7, 7, 0.7, drivetrain),
-      new MotorTime(7, 5, 0.4, drivetrain),
-      new MotorTime(7, 7, 0.15, drivetrain),
-      new WaitCommand(0.2),
-      new TurnDegrees(0.8, 34, drivetrain),
-      new WaitCommand(0.2),
-      new MotorTime(7, 7, 0.55, drivetrain),
-      new MotorTime(6, 2, 0.47, drivetrain),
-      new MotorTime(7, 7, 0.4, drivetrain)
+      new MotorTime(2, 2, 0.5, drivetrain),
+      new MotorTime(4, 4, 0.4, drivetrain),
+      new MotorTime(2, 4, 0.5, drivetrain),
+      new MotorTime(5, 6, 0.5, drivetrain),
+      new MotorTime(6, 2, 0.45, drivetrain),
+      new MotorTime(7, 7, 1.0, drivetrain),
+      new MotorTime(7, 5, 0.8, drivetrain),
+      new MotorTime(3, 7, 2.1, drivetrain),
+      new MotorTime(7, 3, 0.45, drivetrain),
+      new MotorTime(7, 7, 1.3, drivetrain),
+      new MotorTime(7, 4, 0.5, drivetrain),
+      new MotorTime(4, 7, 0.6, drivetrain),
+      new MotorTime(5, 5, 0.4, drivetrain),
+      new MotorTime(5, 5, 0.4, drivetrain)
     );
   }
 }
+
+/*
+First Challenge:
+  new WaitCommand(5),
+  new DriveDistance(0.8, 14, drivetrain),
+  new MotorTime(-1, 7, 0.35, drivetrain),
+  new DriveDistance(0.8, 14.25, drivetrain),
+  new WaitCommand(0.2),
+  new TurnDegrees(-0.7, 82, drivetrain),
+  new WaitCommand(0.2),
+  new MotorTime(7, 7, 0.7, drivetrain),
+  new MotorTime(7, 5, 0.4, drivetrain),
+  new MotorTime(7, 7, 0.15, drivetrain),
+  new WaitCommand(0.2),
+  new TurnDegrees(0.8, 34, drivetrain),
+  new WaitCommand(0.2),
+  new MotorTime(7, 7, 0.55, drivetrain),
+  new MotorTime(6, 2, 0.47, drivetrain),
+  new MotorTime(7, 7, 0.4, drivetrain)
+
+*/
