@@ -111,7 +111,7 @@ public class RobotContainer {
   public Command getArcadeDriveCommand() {
     return new MotorVoltages(
         m_drivetrain,
-        () -> -8 * s_controller.getRawAxis(1),
-        () -> -8 * m_controller.getRawAxis(1));
+        () -> -8 * s_controller.getRawAxis(1) * 0.5,
+        () -> -8 * m_controller.getRawAxis(1) * 0.5);
   }
 }

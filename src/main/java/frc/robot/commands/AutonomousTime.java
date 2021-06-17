@@ -19,20 +19,10 @@ public class AutonomousTime extends SequentialCommandGroup {
   public AutonomousTime(Drivetrain drivetrain) {
     addCommands(
       new WaitCommand(5),
-      new MotorTime(2, 2, 0.5, drivetrain),
-      new MotorTime(4, 4, 0.4, drivetrain),
-      new MotorTime(2, 4, 0.5, drivetrain),
-      new MotorTime(5, 6, 0.5, drivetrain),
-      new MotorTime(6, 2, 0.45, drivetrain),
-      new MotorTime(7, 7, 1.0, drivetrain),
-      new MotorTime(7, 5, 0.8, drivetrain),
-      new MotorTime(3, 7, 2.1, drivetrain),
-      new MotorTime(7, 3, 0.45, drivetrain),
-      new MotorTime(7, 7, 1.3, drivetrain),
-      new MotorTime(7, 4, 0.5, drivetrain),
-      new MotorTime(4, 7, 0.6, drivetrain),
-      new MotorTime(5, 5, 0.4, drivetrain),
-      new MotorTime(5, 5, 0.4, drivetrain)
+      new MotorTime(1, 1, 3, drivetrain),
+      new MotorTime(-2, -2, 3, drivetrain),
+      new MotorTime(3, -3, 2, drivetrain),
+      new MotorTime(-4, 4, 2, drivetrain)
     );
   }
 }
@@ -56,4 +46,19 @@ First Challenge:
   new MotorTime(6, 2, 0.47, drivetrain),
   new MotorTime(7, 7, 0.4, drivetrain)
 
+Second Challenge:
+  new MotorTime(2, 2, 0.5, drivetrain),
+  new MotorTime(4, 4, 0.4, drivetrain),
+  new MotorTime(2, 4, 0.5, drivetrain),
+  new MotorTime(5, 6, 0.5, drivetrain),
+  new MotorTime(6, 2, 0.45, drivetrain),
+  new MotorTime(7, 7, 1.0, drivetrain),
+  new MotorTime(7, 5, 0.8, drivetrain),
+  new MotorTime(3, 7, 2.1, drivetrain),
+  new MotorTime(7, 3, 0.45, drivetrain),
+  new MotorTime(7, 7, 1.3, drivetrain),
+  new MotorTime(7, 4, 0.5, drivetrain),
+  new MotorTime(4, 7, 0.6, drivetrain),
+  new MotorTime(5, 5, 0.4, drivetrain),
+  new MotorTime(5, 5, 0.4, drivetrain)
 */
